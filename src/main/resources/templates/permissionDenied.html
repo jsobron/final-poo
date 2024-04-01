@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../resources/css/login.css" th:href="@{/css/login.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/94b10fad32.js" crossorigin="anonymous"></script>
+    <title>Comprobante de Pago</title>
+</head>
+
+<body>
+<div class="container-fluid" layout:fragment="page-content">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header text-success alert alert-danger">
+          <div class="text-center">
+            <h4 class="mb-0 text-danger">Acceso Denegado</h4>
+          </div>
+        </div>
+      	<div class="d-flex flex-column">
+        	<p class="text-center fw-medium">Solo los administradores tienen acceso a ésta sección.</p>
+      	</div>
+    </div>
+</div>
+</div>
+</div>
+
+<th:block layout:fragment="page-scripts">
+
+</th:block>
+
+</body>
+</html>
+

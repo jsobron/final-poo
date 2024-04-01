@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../resources/css/login.css" th:href="@{/css/login.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/94b10fad32.js" crossorigin="anonymous"></script>
+    <title>Formulario de Cobro</title>
+</head>
+
+<body onload="activePage()">
+	<div class="container-fluid mt-2" layout:fragment="page-content">
+		<div class="d-flex justify-content-between align-items-center">
+			<h1 class="text-secondary fs-3">Cobrar Socio</h1>
+			<button type="button" class="btn btn-primary btn-sm me-3" onclick="redirigir()"><i class="fas fa-arrow-circle-left me-1"></i>Volver</button>
+		</div>
+			<div class="row">
+				<div class="card-body pt-0">
+					<form th:action="@{/guardar-charge}" th:object="${charge}" method="post" onsubmit="return validarFormulario();">
+						<div class="form-group row">
+							<div class="col-md-6 mb-2">
+								<label for="member">Member:</label> 
+								<input type="text" id="member" name="member" th:field="*{charge.member_id}" value="*{member}" class="form-control form-control-sm" readonly="readonly">
+							</div>
+							
+							<div class="col-md-6 mb-2">
+								<label for="nombreCliente">Nombre:</label> 
+								<input type="text" name="nameMember" th:field="*{member.name}" class="form-control form-control-sm" readonly="readonly"></input>
+							</div>
+							<div class="col-md-6 mb-2">
+								<label for="apellidoCliente">Apellido:</label> 
+								<input type="text" name="surnameMember" th:field="*{member.surname}" class="form-control form-control-sm" readonly="readonly"></input>
+							</div>
+							<div class="col-md-6 mb-2">
+								<label for="fechaAlta">Fecha de admisión:</label> 
+								<input type="text" name="admissionDate" th:field="*{member.admission_date}" class="form-control form-control-sm" readonly="readonly"></input>
+							</div>
+							<div class="col-md-6 mb-2">				
+								<div class="form-group">
+									<label for="date">Fecha de pago:</label> 
+									<input type="date" id="date" name="bthday_date" th:field="*{charge.date}" class="form-control form-control-sm" required>
+								</div>				
+							</div>
+							<div class="col-md-6 mb-2">
+								<div class="form-group">
+									<label for="value">Monto:</label> 
+									<input type="number" id="value" name="value" th:field="*{charge.value}" class="form-control form-control-sm" required>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-end mt-2">
+							<input type="submit" class="btn btn-success btn-sm me-2 col-12 col-lg-2" value="Guardar">
+						</div>
+      		</form>
+    		</div>
+            <script type="text/javascript">
+                function redirigir() {
+                    window.location = '/cobrar-socio';
+                }
+
+                function validarFormulario() {
+                    var monto = document.getElementById("value").value;
+
+                    // Verificar número de documento
+                    var regexDocNumber = /^[0-9]+$/;
+                    if (!regexDocNumber.test(monto)) {
+                        alert("Monto debe contener solo números");
+                        return false;
+                    }
+
+                    return true; // Permite enviar el formulario
+                }
+            </script>
+						<script>
+							function activePage(){
+									const page = document.getElementById("cobrar-socio");
+									page.classList.add('active-page')
+							}
+						</script>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns:th="http://www.thymeleaf.org" -->
+<!-- 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
+<!-- 	layout:decorate="~{layout/layout}"> -->
+
+<!-- <head th:replace="layout/layout :: head"> -->
+<!-- <meta charset="UTF-8"> -->
+<!-- <title>Agregar Cobro</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<div class="container-fluid" layout:fragment="page-content"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<h1 class="text-center">Cobrar Socio</h1> -->
+<!-- 			<div class="card-body"> -->
+
+<!-- 				<form th:action="@{/guardar-socio-charge}" th:object="${memberCharge}" method="post" -->
+<!-- 					onsubmit="return validarFormulario();"> -->
+
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> N° de socio: </label> -->
+<!-- 						<input type="text" name="id" th:field="*{member.id}" class="form-control form-control-sm" -->
+<!-- 							readonly="readonly"></input> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> Nombre: </label> -->
+<!-- 						<input type="text" name="name" th:field="*{member.name}" class="form-control form-control-sm" -->
+<!-- 							readonly="readonly"></input> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> Apellido: </label> -->
+<!-- 						<input type="text" name="surname" th:field="*{member.surname}" class="form-control form-control-sm" -->
+<!-- 							readonly="readonly"></input> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> Fecha de pago: </label> -->
+<!-- 						<input type="date" id="date" name="bthday_date" th:field="*{charge.date}" class="form-control form-control-sm" required> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> Monto: </label> -->
+<!-- 						<input type="text" id="value" name="value" th:field="*{charge.value}" class="form-control form-control-sm" -->
+<!-- 							required></input> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<label> Numero de Comprobante: </label> -->
+<!-- 						<input type="text" name="idCharge" th:field="*{charge.member_id}" class="form-control form-control-sm" -->
+<!-- 							readonly="readonly"></input> -->
+<!-- 					</div> -->
+
+<!-- 					<br> -->
+
+<!-- 					<input type="submit" class="btn btn-info mb-2" value="Guardar"> -->
+<!-- 					&nbsp;&nbsp; -->
+<!-- 					<input type="button" class="btn btn-secondary mb-2" value="Cancelar" onclick="redirigir()"> -->
+<!-- 				</form> -->
+
+<!-- 			</div> -->
+
+<!-- 			<script type="text/javascript"> -->
+// 				function redirigir() {
+// 					window.location = '/cobrar-socio';
+// 				}
+
+// 				function validarFormulario() {
+// 					var monto = document.getElementById("value").value;
+
+// 					// Verificar número de documento
+// 					var regexDocNumber = /^[0-9]+$/;
+// 					if (!regexDocNumber.test(monto)) {
+// 						alert("Monto debe contener solo números");
+// 						return false;
+// 					}
+
+
+// 					return true; // Permite enviar el formulario
+// 				}
+<!-- 			</script> -->
+
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </body> -->
+<!-- </html> -->
