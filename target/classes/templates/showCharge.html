@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../resources/css/login.css" th:href="@{/css/login.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/94b10fad32.js" crossorigin="anonymous"></script>
+    <title>Comprobante de Pago</title>
+</head>
+
+<body onload="activePage()">
+<div class="container-fluid h-100 position-relative" layout:fragment="page-content">
+	<button type="button" class="btn btn-primary btn-sm me-3  position-absolute top-0 end-0 mt-3 me-3" onclick="redirigir()"><i class="fas fa-arrow-circle-left me-1"></i>Volver</button>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <div class="card mt-3 shadow">
+                <div class="card-header text-success bg-white">
+                     <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="text-secondary">Comprobante de pago</h4>
+                        <img src="../assets/images/icon-club.png" class="img-fluid" alt="Comprobante de Pago" style="max-height: 60px;">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form th:object="${charge}" method="post">
+                    <div class="form-group">
+                        <div class="row">
+                        	<div class="col-md-6">
+                                <label for="numeroCliente">Número de Socio:</label>
+                                <input type="text" name="idMember" th:field="*{member_id.id}" class="form-control form-control-sm" readonly="readonly"></input>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nombreCliente">Nombre:</label>
+                               <input type="text" name="nameMember" th:field="*{member_id.name}" class="form-control form-control-sm" readonly="readonly"></input>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="apellidoCliente">Apellido:</label>
+                                 <input type="text" name="surnameMember" th:field="*{member_id.surname}" class="form-control form-control-sm" readonly="readonly"></input>
+                            </div>
+                             <div class="col-md-6">
+                                <label for="ingresoCliente">Fecha de admisión:</label>
+                                 <input type="text" name="admissionMember" th:field="*{member_id.admission_date}" class="form-control form-control-sm" readonly="readonly"></input>
+                            </div>                   
+                        </div>
+                    </div>
+                    <!-- Agrega más campos según sea necesario -->
+
+                    <hr>
+
+                    <!-- Formulario para los datos del comprobante de pago -->
+                    <div class="form-group">
+                        <label for="monto">Monto:</label>
+                        <input type="text" name="value" th:field="*{value}" class="form-control form-control-sm" readonly="readonly"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Pago:</label>
+                        <input type="text" name="date" th:field="*{date}" class="form-control form-control-sm" readonly="readonly"></input>
+                    </div>
+                    <!-- Agrega más campos según sea necesario -->
+
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+    		function redirigir() {
+    			window.location='/cobrar-socio';
+} 
+     </script>
+     		<script>
+			function activePage(){
+					const page = document.getElementById("cobrar-socio");
+					page.classList.add('active-page')
+			}
+		</script>
+</div>
+
+<th:block layout:fragment="page-scripts">
+
+</th:block>
+
+</body>
+</html>
+

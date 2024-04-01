@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../resources/css/login.css" th:href="@{/css/login.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/94b10fad32.js" crossorigin="anonymous"></script>
+    <title>Nuevo Socio</title>
+</head>
+
+<body onload="activePage()">
+    <div class="container-fluid mt-2" layout:fragment="page-content">
+        <h1 class="text-secondary fs-3" th:text="${titulo}"></h1>
+        <form th:action="@{/guardar-socio}" th:object="${nuevoSocio}" method="post" onsubmit="return validarFormulario();">
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
+                <div class="col-6">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" th:field="*{name}" class="form-control form-control-sm" required>
+                </div>
+                <div class="col-6">
+                    <label for="surname">Apellido:</label>
+                    <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control form-control-sm" required>
+                </div>
+            </div>
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
+                <div class="col-6">
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" name="address" th:field="*{address}" class="form-control form-control-sm" required>
+                </div>
+                <div class="col-6">
+                    <label for="location">Localidad:</label>
+                    <input type="text" id="location" name="location" th:field="*{location}" class="form-control form-control-sm" required>
+                </div>
+            </div>
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
+                <div class="col-6">
+                    <label for="document_number">Documento:</label>
+                    <input type="text" id="document_number" name="document_number" th:field="*{document_number}" class="form-control form-control-sm" required>
+                </div>
+                <div class="col-6">
+                    <label for="bthday_date">F. Nacimiento:</label>
+                    <input type="date" id="bthday_date" name="bthday_date" th:field="*{bthday_date}" class="form-control form-control-sm" required>
+                </div>
+            </div>
+            <div class="form-group mb-2 me-2 flex-grow-1 row">
+                <div class="col-6">
+                    <label for="telephone">Teléfono:</label>
+                    <input type="text" id="telephone" name="telephone" th:field="*{telephone}" class="form-control form-control-sm" required>
+                </div>
+                <div class="col-6">
+                    <label for="admission_date">F. Admisión:</label>
+                    <input type="date" id="admission_date" name="admission_date" th:field="*{admission_date}" class="form-control form-control-sm" required>
+                </div>
+            </div>
+            <div class="form-group mb-2 me-2 flex-grow-1 row d-flex align-items-end">
+                <div class="col-6">
+                    <label for="accepted">Aceptado:</label>
+                    <select id="accepted" name="accepted" th:field="*{accepted}" class="form-control form-control-sm" required>
+                        <option value="Si">Sí</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <input type="submit" class="btn btn-sm btn-success align-self-center w-100" value="Guardar">
+                </div>
+            </div>
+
+        </form>
+
+        <th:block layout:fragment="page-scripts">
+        </th:block>
+
+        <script>
+            function validarTelefono() {
+                var telefono = document.getElementById("telephone").value;
+                // Expresión regular para permitir solo números
+                var regex = /^[0-9]+$/;
+                if (!regex.test(telefono)) {
+                    alert("Por favor, ingrese solo números en el campo de teléfono.");
+                    return false; // Evita que se envíe el formulario
+                }
+                return true; // Permite enviar el formulario
+            }
+
+            function validarFormulario() {
+                if (!validarTelefono()) {
+                    return false;
+                }
+                var docNumber = document.getElementById("document_number").value;
+
+                // Verificar número de documento
+                var regexDocNumber = /^[0-9]+$/;
+                if (!regexDocNumber.test(docNumber) || docNumber.length < 7) {
+                    alert("Número de documento debe contener solo números y tener al menos 7 dígitos.");
+                    return false;
+                }
+
+                return true; // Permite enviar el formulario
+            }
+        </script>
+        <script src="/js/app.js" charset="UTF-8"></script>
+        <script>
+            function activePage(){
+                const page = document.getElementById("nuevo-socio");
+                console.log(page.classList.add('active-page'))
+            }
+        </script>
+    </div>
+</body>
+</html>
