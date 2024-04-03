@@ -35,8 +35,6 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 	@Override
 	public Usuario guardar(UsuarioRegistroDTO registroDTO, String rol) {
 		Rol rolUsuario = rolRepositorio.findByNombre(rol);
-		
-		
 		Usuario usuario = new Usuario(registroDTO.getNombre(), registroDTO.getApellido(),registroDTO.getEmail(), passwordEncoder.encode(registroDTO.getPassword()), rolUsuario);
 		return usuarioRepositorio.save(usuario);
 	}

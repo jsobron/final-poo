@@ -1,0 +1,17 @@
+com\unnoba\socialclub\entities\Charge.class
+com\unnoba\socialclub\repositories\MemberRepository.class
+com\unnoba\socialclub\dto\UsuarioRegistroDTO.class
+com\unnoba\socialclub\services\UsuarioServicioImpl.class
+com\unnoba\socialclub\entities\Member.class
+com\unnoba\socialclub\services\MemberService.class
+com\unnoba\socialclub\SocialClubApplication.class
+com\unnoba\socialclub\repositories\ChargeRepository.class
+com\unnoba\socialclub\controllers\RegistroUsuarioControlador.class
+com\unnoba\socialclub\repositories\UsuarioRepositorio.class
+com\unnoba\socialclub\SecurityConfiguration.class
+com\unnoba\socialclub\controllers\HomeController.class
+com\unnoba\socialclub\entities\Rol.class
+com\unnoba\socialclub\repositories\RolRepositorio.class
+com\unnoba\socialclub\entities\Usuario.class
+com\unnoba\socialclub\services\UsuarioServicio.class
+com\unnoba\socialclub\services\ChargeService.class

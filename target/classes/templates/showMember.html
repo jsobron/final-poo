@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout}">
+
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+<title>Ver Socio</title>
+</head>
+<body onload="activePage()">
+	<div class="container-fluid mt-2" layout:fragment="page-content">
+		<div class="d-flex justify-content-between align-items-center">
+			<h1 class="text-secondary fs-3">Ver Socio</h1>
+			<button type="button" class="btn btn-primary btn-sm me-3" onclick="limpiarCamposYRedirigir()"><i class="fas fa-arrow-circle-left me-1"></i>Volver</button>
+		</div>
+
+		<div class="row">
+			<div class="card-body pt-0">
+				<form th:object="${socio}">
+					<div class="form-group row mb-3">
+						<div class="col-6">
+							<label>N° de socio:</label>
+							<input type="text" name="id" th:field="*{id}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+						<div class="col-6">
+							<label>Nombre:</label>
+							<input type="text" name="name" th:field="*{name}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="form-group row mb-3">
+						<div class="col-6">
+							<label>Apellido:</label>
+							<input type="text" name="surname" th:field="*{surname}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+						<div class="col-6">
+							<label>Dirección:</label>
+							<input type="text" name="address" th:field="*{address}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="form-group row mb-3">
+						<div class="col-6">
+							<label>Localidad:</label>
+							<input type="text" name="location" th:field="*{location}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+						<div class="col-6">
+							<label>Teléfono:</label>
+							<input type="text" name="telephone" th:field="*{telephone}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="form-group row mb-3">
+						<div class="col-6">
+							<label>N° documento:</label>
+							<input type="text" name="document_number" th:field="*{document_number}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+						<div class="col-6">
+							<label>F. Nacimiento:</label>
+							<input type="text" name="bthday_date" th:field="*{bthday_date}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+					</div>
+
+					<div class="form-group row mb-3">
+						<div class="col-6">
+							<label>F. Admisión:</label>
+							<input type="text" name="admission_date" th:field="*{admission_date}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+						<div class="col-6">
+							<label>Aceptado:</label>
+							<input type="text" name="accepted" th:field="*{accepted}" class="form-control form-control-sm" readonly="readonly">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function limpiarCamposYRedirigir() {
+				window.location = '/socios';
+			}
+		</script>
+		<script>
+			function activePage(){
+					const page = document.getElementById("socios");
+					page.classList.add('active-page')
+			}
+		</script>
+	</div>
+</body>
+</html>

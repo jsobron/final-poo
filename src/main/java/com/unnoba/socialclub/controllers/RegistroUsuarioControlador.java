@@ -33,6 +33,7 @@ public class RegistroUsuarioControlador {
 	
 	@PostMapping
 	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO) {
+		System.out.println(registroDTO.getRol_id());
 		usuarioServicio.guardar(registroDTO, registroDTO.getRol_id());
 		return "redirect:/login";
 	}
