@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 .login-page {
+=======
+.login-page{
+>>>>>>> 9a843ecffb85e608696f6d6d359e0337ea036816
     height: 100vh;
     max-height: 100vh;
 }
 
+<<<<<<< HEAD
 .left-container {
 
 }
@@ -12,10 +17,22 @@
 }
 
 .login-input {
+=======
+.left-container{
+
+}
+
+.right-container{
+    height: 90%;
+}
+
+.login-input{
+>>>>>>> 9a843ecffb85e608696f6d6d359e0337ea036816
     outline: none;
 }
 
 @media (max-width: 992px) {
+<<<<<<< HEAD
     .left-container {
         height: 10%;
     }
@@ -40,3 +57,12 @@ body.login-page {
 .btn-custom:hover {
     background-color: hsl(0, 88%, 37%); /* Cambia de color al pasar el cursor sobre el botón */
 }
+=======
+    .left-container{
+        height: 10%;
+    }
+    .right-container{
+        height: 90%;
+    }
+  }
+>>>>>>> 9a843ecffb85e608696f6d6d359e0337ea036816
