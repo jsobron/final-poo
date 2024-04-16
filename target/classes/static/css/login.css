@@ -26,7 +26,7 @@
 
 /* Estilo para el fondo de dos colores en diagonal */
 body.login-page {
-    background: linear-gradient(135deg, #008000 50%, #000000 50%);
+    background: linear-gradient(135deg, #000000 50%, #000000 50%);
 }
 
 /* Ajustes adicionales de estilo */
@@ -34,8 +34,8 @@ body.login-page {
 
 .btn-custom {
     background-color: rgb(12, 15, 199) !important; /* Color azul */
-    color: #17e710 !important; /* Texto en verde */
-    border: 3px solid rgb(57, 226, 51) !important; /* Borde de px sólido con el mismo color verde */
+    color: #10cee7 !important; /* Texto en verde */
+    border: 3px solid rgb(7, 181, 250) !important; /* Borde de px sólido con el mismo color verde */
 }
 
 
