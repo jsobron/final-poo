@@ -31,12 +31,13 @@ body.login-page {
 
 /* Ajustes adicionales de estilo */
 
+
 .btn-custom {
-    background-color: #509205; /* Color verde */
-    color: #ffffff; /* Texto en blanco */
-    border: none; /* Elimina el borde del botón */
+    background-color: rgb(12, 15, 199) !important; /* Color azul */
+    color: #17e710 !important; /* Texto en verde */
+    border: 3px solid rgb(57, 226, 51) !important; /* Borde de px sólido con el mismo color verde */
 }
 
-.btn-custom:hover {
-    background-color: hsl(0, 88%, 37%); /* Cambia de color al pasar el cursor sobre el botón */
-}
+
+
+
