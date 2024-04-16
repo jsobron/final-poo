@@ -61,7 +61,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: hsl(177, 80%, 52%), 80%, 52%), 46%, 52%);
 }
 
 *,
@@ -86,7 +86,7 @@ body {
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgb(25, 135, 84);
+  -webkit-tap-highlight-color: rgb(25, 104, 135);
 }
 
 hr {
