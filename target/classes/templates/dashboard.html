@@ -13,18 +13,11 @@
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<div class="sidebar-heading text-white">
-					<a th:href="@{/socios}">
+					<!-- <a th:href="@{/socios}">
 						<img class="col-1 m-0 p-0 brand-icon" src="../assets/images/logo.png" alt="icon Club Pergamino"/>
-					</a>
+					</a> -->
 				</div>
-				<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-					<li class="nav-item dropdown align-self-center">
-						<a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-						<form class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" th:action="@{/logout}" method="post">
-							<input type="submit" class="dropdown-item text-secondary" value="Salir"/>
-						</form>
-					</li>
-				</ul>
+				
 			</div>
 		</div>
 	</nav>
@@ -49,34 +42,55 @@
 			<div class="container-fluid" layout:fragment="page-content">
 
 				<div class="container-fluid h-100" id="dashboard-page">
-					<h1 class="text-secondary pt-2 fw-bold" th:text="${titulo}"></h1>
-					<p class="col-10 pt-2 text-secondary">Este sistema tiene fines educativos. La entidad fue creada por los alumnos de la materia</p>
-					<p class="col-10 pt-2 text-secondary"> En el Sistema tenemos las siguientes funciones: </p>
-						
+					<h1 class="text-secondary pt-2 fw-bold text-center" th:text="${titulo}"></h1>
+					<p class="col-10 pt-2 text-secondary text-center">Este sistema tiene fines educativos. La entidad fue creada por los alumnos de la materia</p>
 				</div>
-				<div class="row row-cols-2 text-center  m-3">
-					<div class="container border border-black bg-danger-subtle p-4">
-						<i class="bi bi-table"></i>
-						<a type="btn" th:href="@{/socios}" href="#socios">Listado de Socios</a>
+				<div class="row row-cols-3 mt-4">
+					<div class="col text-center">
+						<div class="card border-dark mb-3" style="max-width: 18rem;">
+							<div class="card-header bg-dark text-white"><i class="bi bi-table"></i></div>
+							<div class="card-body">
+								<h5 class="card-title">Listado de Socios</h5>
+								<a class="btn btn-dark" th:href="@{/socios}" href="#socios">Ir</a>
+							</div>
+						</div>
 					</div>
-					<div class="container border border-black bg-info-subtle p-4">
-						<i class="bi bi-person-plus-fill"></i>
-						<a th:href="@{/nuevo-socio}" href="#creacion">Añadir Nuevo Socio</a>
+					<div class="col text-center">
+						<div class="card border-dark mb-3" style="max-width: 18rem;">
+							<div class="card-header bg-dark text-white"><i class="bi bi-person-plus-fill"></i></div>
+							<div class="card-body">
+								<h5 class="card-title">Añadir Nuevo Socio</h5>
+								<a class="btn btn-dark" th:href="@{/nuevo-socio}" href="#creacion">Ir</a>
+							</div>
+						</div>
 					</div>
-					<div class="container border border-black bg-info-subtle p-4">
-						<i class="bi bi-wallet"></i>
-						<a th:href="@{/cobrar-socio}" href="#cobrar-socio">Cobrar a Socio</a>
+					<div class="col text-center">
+						<div class="card border-dark mb-3" style="max-width: 18rem;">
+							<div class="card-header bg-dark text-white"><i class="bi bi-wallet"></i></div>
+							<div class="card-body">
+								<h5 class="card-title">Cobrar a Socio</h5>
+								<a class="btn btn-dark" th:href="@{/cobrar-socio}" href="#cobrar-socio">Ir</a>
+							</div>
+						</div>
 					</div>
-					<div class="container border border-black bg-danger-subtle p-4">
-						<i class="bi bi-pause-circle-fill"></i>
-						<a th:href="@{/socios-pendientes}" href="#socios-prendientes">Socios Pendientes</a>
+					<div class="col text-center">
+						<div class="card border-dark mb-3" style="max-width: 18rem;">
+							<div class="card-header bg-dark text-white"><i class="bi bi-pause-circle-fill"></i></div>
+							<div class="card-body">
+								<h5 class="card-title">Socios Pendientes</h5>
+								<a class="btn btn-dark" th:href="@{/socios-pendientes}" href="#socios-prendientes">Ir</a>
+							</div>
+						</div>
 					</div>
-					<div class="container border border-black bg-danger-subtle p-4">
-						<i class="bi bi-life-preserver"></i>
-						<a th:href="@{/socios-vitalicios}" href="#socios-vitalicios">Socios Vitalicios</a>
+					<div class="col text-center">
+						<div class="card border-dark mb-3" style="max-width: 18rem;">
+							<div class="card-header bg-dark text-white"><i class="bi bi-life-preserver"></i></div>
+							<div class="card-body">
+								<h5 class="card-title">Socios Vitalicios</h5>
+								<a class="btn btn-dark" th:href="@{/socios-vitalicios}" href="#socios-vitalicios">Ir</a>
+							</div>
+						</div>
 					</div>
-					
-
 				</div>
 			</div>
 		</div>
