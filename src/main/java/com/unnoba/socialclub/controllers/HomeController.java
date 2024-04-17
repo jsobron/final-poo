@@ -49,8 +49,12 @@ public class HomeController {
 	public String goHome(Model model, Authentication authentication) {
 		String username = authentication.getName();
 		Usuario usuario = usuarioServicio.findByEmail(username);
+		String nombreUsuario = usuario.getNombre();
+		// Convertir la primera letra a mayúscula
+		nombreUsuario = nombreUsuario.substring(0, 1).toUpperCase() + nombreUsuario.substring(1);
+
 		setRol(usuario.getRol_id().getNombre());
-		model.addAttribute("titulo", "Bienvenido/a, " + usuario.getNombre());
+		model.addAttribute("titulo", "Bienvenido/a, " + nombreUsuario);
 
 		return "dashboard";
 	}
