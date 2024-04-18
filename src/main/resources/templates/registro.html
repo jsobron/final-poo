@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="../resources/css/login.css" th:href="@{/css/login.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/94b10fad32.js" crossorigin="anonymous"></script>
+
+	<style>
+        /* CSS para cambiar el color del icono */
+        .custom-icon-color {
+            color: red; /* Cambia el color del icono a rojo */
+        }
+    </style>
+
 	</head>
 <body class="login-page d-flex p-lg-5 p-0 bg-light">
 
@@ -29,8 +37,8 @@
 								<div class="input-group mb-3 col ps-0">
 									<span
 										class="input-group-text bg-transparent border-0 border-bottom border-secondary border-2 rounded-0"
-										id="basic-addon1"><i class="bi bi-person-circle"
-										style="color: #ffffff;"></i></span>
+										id="basic-addon1"><i class="bi bi-person-circle custom-icon-color"
+										></i></span>
 										<input type="text" id="nombre"
 										th:field="*{nombre}"
 										class="login-input form-control border-0 focus-ring focus-ring-light border-bottom border-secondary border-2 rounded-0"
@@ -39,8 +47,8 @@
 								<div class="input-group mb-3 col pe-0">
 									<span
 										class="input-group-text bg-transparent border-0 border-bottom border-secondary border-2 rounded-0"
-										id="basic-addon1"><i class="bi bi-person-circle"
-										style="color: #ffffff;"></i></span> <input type="text" id="apellido"
+										id="basic-addon1"><i class="bi bi-person-circle custom-icon-color"
+										style="color: #030303;"></i></span> <input type="text" id="apellido"
 										th:field="*{apellido}"
 										class="login-input form-control border-0 focus-ring focus-ring-light border-bottom border-secondary border-2 rounded-0"
 										placeholder="Apellido" aria-label="surname" required>
@@ -52,8 +60,8 @@
 								<div class="input-group mb-3 col ps-0">
 									<span
 										class="input-group-text bg-transparent border-0 border-bottom border-secondary border-2 rounded-0"
-										id="basic-addon1"><i class="bi bi-person-circle"
-										style="color: #ffffff;"></i></span> <input type="text" id="email"
+										id="basic-addon1"><i class="bi bi-person-circle custom-icon-color"
+										style="color: #030303;"></i></span> <input type="text" id="email"
 										th:field="*{email}"
 										class="login-input form-control border-0 focus-ring focus-ring-light border-bottom border-secondary border-2 rounded-0"
 										placeholder="Usuario" aria-label="email">
@@ -61,8 +69,8 @@
 								<div class="input-group mb-3 col pe-0">
 									<span
 										class="input-group-text bg-transparent border-0 border-bottom border-secondary border-2 rounded-0"
-										id="basic-addon1"><i class="bi bi-person-circle"
-										style="color: #ffffff;"></i></span>
+										id="basic-addon1"><i class="bi bi-person-circle custom-icon-color"
+										style="color: #030303;"></i></span>
 			
 									<select id="rol_id" name="rol_id" th:field="*{rol_id}" class="form-control border-0 focus-ring focus-ring-light border-bottom border-secondary border-2 rounded-0" required >
 										<option value="" selected>Rol</option>
@@ -75,8 +83,8 @@
 						<div class="input-group mt-2">
 							<span
 								class="input-group-text bg-transparent border-0 border-bottom border-secondary border-2 rounded-0"
-								id="basic-addon1"><i class="bi bi-key-fill"
-								style="color: #ffffff;"></i></span> <input type="password"
+								id="basic-addon1"><i class="bi bi-key-fill custom-icon-color"
+								style="color: #030303;"></i></span> <input type="password"
 								id="password" th:field="*{password}"
 								class="login-input form-control border-0 focus-ring focus-ring-light border-bottom border-secondary border-2 rounded-0"
 								placeholder="Contraseña" aria-label="Password">
@@ -91,10 +99,6 @@
 				</form>
       </div>
 		</div>
-		<footer class="w-100 align-self-end position-absolute position-absolute bottom-0 start-0">
-			<p class="text-secondary lh-1 mt-0 m-2">© Club Social Deportivo Pergamino</p>
-		</footer>
-
 	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
